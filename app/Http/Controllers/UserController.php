@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-
+        return "User Registered";
     }
 
     public function show()

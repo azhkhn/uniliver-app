@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('user/', 'UserController@show');
 
+Route::get('user/register', 'UserController@register');
+
 Route::get('question/{day}/{question}', 'QuestionController@show');
 
 Route::get('question/{user}/{day}/{question}', 'QuestionController@saveAnswer');

@@ -16,11 +16,11 @@ class QuestionController extends Controller
 
     public function saveAnswer(Request $request, $user, $day, $question)
     {
-
+        return "Question " . $question ." of Day " . $day ." from User: " . $user;
     }
 
     public function show($day, $question)
     {
-        return "Question 1 of Day 1";
+        return "Question $question of Day $day";
     }
 }
