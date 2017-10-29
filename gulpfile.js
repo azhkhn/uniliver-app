@@ -24,7 +24,7 @@ gulp.task('sass', function() {
     .pipe(header(banner, {
       pkg: pkg
     }))
-    .pipe(gulp.dest('public/css'))
+    .pipe(gulp.dest('resources/assets/css'))
     .pipe(browserSync.reload({
       stream: true
     }))

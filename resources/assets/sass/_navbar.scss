@@ -4,7 +4,7 @@
   font-weight: 700;
   text-transform: uppercase;
   border: none;
-  background: $theme-primary;
+  background: none;
   a:focus {
     outline: none;
   }
@@ -60,6 +60,7 @@
       -webkit-transition: all 0.3s;
       -moz-transition: all 0.3s;
       transition: all 0.3s;
+      color:black;
     }
     .navbar-nav > li.nav-item > a.nav-link.active {
       color: white;
