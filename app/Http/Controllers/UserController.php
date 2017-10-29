@@ -20,6 +20,11 @@ class UserController extends Controller
         return "User Registered";
     }
 
+    public function login()
+    {
+        return view("index");
+    }
+
     public function show()
     {
         return "User Registration Form";
