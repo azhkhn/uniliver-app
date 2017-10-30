@@ -1,6 +1,9 @@
 $(function() {
 
-  $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
+  $( "#startGame" ).click(function() {
+      $('#mainContainer').load('game/1/1');
+  });
+  $("#registrationForm input,#registrationForm textarea").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function($form, event, errors) {
       // additional error messages or events
@@ -11,22 +14,22 @@ $(function() {
       var name = $("input#name").val();
       var email = $("input#email").val();
       var phone = $("input#phone").val();
-      var message = $("textarea#message").val();
+      var _token= $("input#_token").val();
       var firstName = name; // For Success/Failure Message
       // Check for white space in name for Success/Fail message
       if (firstName.indexOf(' ') >= 0) {
         firstName = name.split(' ').slice(0, -1).join(' ');
       }
-      $this = $("#sendMessageButton");
+      $this = $("#registerButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
       $.ajax({
-        url: "././mail/contact_me.php",
+        url: "user/register",
         type: "POST",
         data: {
           name: name,
           phone: phone,
           email: email,
-          message: message
+          _token: _token
         },
         cache: false,
         success: function() {
@@ -35,11 +38,12 @@ $(function() {
           $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
             .append("</button>");
           $('#success > .alert-success')
-            .append("<strong>Your message has been sent. </strong>");
+            .append("<strong>Registration complete. </strong>");
           $('#success > .alert-success')
             .append('</div>');
           //clear all fields
-          $('#contactForm').trigger("reset");
+          $('#registrationForm').trigger("reset");
+          location.href = "game"
         },
         error: function() {
           // Fail message
@@ -49,7 +53,7 @@ $(function() {
           $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!"));
           $('#success > .alert-danger').append('</div>');
           //clear all fields
-          $('#contactForm').trigger("reset");
+          $('#registrationForm').trigger("reset");
         },
         complete: function() {
           setTimeout(function() {

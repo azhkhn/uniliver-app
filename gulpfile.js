@@ -72,6 +72,9 @@ gulp.task('copy', function() {
     ])
     .pipe(gulp.dest('public/bootstrap'))
 
+  gulp.src(['resources/assets/js/registerUser.js'])
+      .pipe(gulp.dest('public/js'))
+
   gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
     .pipe(gulp.dest('public/js/jquery'))
 

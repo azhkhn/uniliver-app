@@ -17,16 +17,24 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        return "User Registered";
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $request->session()->put(['name'=> $name,'email'=> $email,'phone'=> $phone,]);
+        return "true";
     }
 
     public function login()
     {
-        return view("index");
+        return view("login");
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        return "User Registration Form";
+        $name = $request->session()->get('name');
+        $email = $request->session()->get('email');
+        $phone = $request->session()->get('phone');
+        return view("startGame");
+        //return "Dear: $name , you are registed by the email: $email and your phone number is: $phone";
     }
 }

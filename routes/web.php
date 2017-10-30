@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', 'UserController@login');
+Route::any('/', 'UserController@login');
 
-Route::get('user/', 'UserController@show');
+Route::any('user', 'UserController@show');
 
-Route::get('user/register', 'UserController@register');
+Route::any('game', 'GameController@start');
+Route::any('game/{day}/{ques}', 'GameController@dayQues');
 
-Route::get('question/{day}/{question}', 'QuestionController@show');
+Route::any('user/register', 'UserController@register');
 
-Route::get('question/{user}/{day}/{question}', 'QuestionController@saveAnswer');
+Route::any('question/{day}/{question}', 'QuestionController@show');
+
+Route::any('question/{user}/{day}/{question}', 'QuestionController@saveAnswer');
