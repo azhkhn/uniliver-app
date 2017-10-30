@@ -114,6 +114,9 @@ div .game-ques-vertical-align {
   justify-content: center;
   flex-direction: row; }
 
+div .center-align-element {
+  text-align: center; }
+
 #mainNav {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
@@ -176,7 +179,6 @@ div .game-ques-vertical-align {
 header.masthead {
   padding-top: 50px;
   padding-bottom: 50px;
-  text-align: center;
   color: black;
   background: white; }
   header.masthead img {

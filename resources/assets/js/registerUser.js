@@ -1,9 +1,4 @@
 $(function() {
-
-  $( "#startGame" ).click(function() {
-      $('#mainContainer').load('game/1/1');
-      history.pushState(null, null, 'game/1/1');
-  });
   $("#registrationForm input,#registrationForm textarea").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function($form, event, errors) {

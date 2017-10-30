@@ -11,6 +11,7 @@
 
 <!-- Custom scripts for this template -->
 <script src="{{url('../js/freelancer.min.js')}}"></script>
+<script src="{{url('../js/gameApp.js')}}"></script>
 
 </body>
 

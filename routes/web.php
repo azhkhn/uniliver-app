@@ -15,8 +15,17 @@ Route::any('/', 'UserController@login');
 
 Route::any('user', 'UserController@show');
 
-Route::any('game', 'GameController@start');
-Route::any('game/{day}/{ques}', 'GameController@dayQues');
+Route::get('game', 'GameController@start');
+
+Route::any('game/d1q1', 'GameController@day1Ques1');
+
+Route::any('game/d1q2', 'GameController@day1Ques2');
+
+Route::any('game/d1q3', 'GameController@day1Ques3');
+
+Route::any('game/d1result', 'GameController@day1result');
+
+Route::post('game/answer', 'GameController@processAnswer');
 
 Route::any('user/register', 'UserController@register');
 

@@ -8,7 +8,7 @@
             <div class="col-xs-12 col-sm-4">
                 <img class="rounded" src="img/profile.jpg" alt="">
             </div>
-            <div class="col-xs-12 col-sm-8">
+            <div class="col-xs-12 col-sm-8 center-align-element">
                 <div class="intro-text">
                     <span class="skills">Please register to play the game.</span>
                 </div>
