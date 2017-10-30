@@ -70,16 +70,16 @@ gulp.task('copy', function() {
       '!**/bootstrap-theme.*',
       '!**/*.map'
     ])
-    .pipe(gulp.dest('public/bootstrap'))
+    .pipe(gulp.dest('public/bootstrap'));
 
   gulp.src(['resources/assets/js/registerUser.js'])
-      .pipe(gulp.dest('public/js'))
+      .pipe(gulp.dest('public/js'));
 
   gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
-    .pipe(gulp.dest('public/js/jquery'))
+    .pipe(gulp.dest('public/js/jquery'));
 
   gulp.src(['node_modules/jquery.easing/*.js'])
-    .pipe(gulp.dest('public/js/jquery-easing'))
+    .pipe(gulp.dest('public/js/jquery-easing'));
 
   gulp.src([
       'node_modules/font-awesome/**',
@@ -90,7 +90,7 @@ gulp.task('copy', function() {
       '!node_modules/font-awesome/*.json'
     ])
     .pipe(gulp.dest('public/font-awesome'))
-})
+});
 
 // Default task
 gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
@@ -102,7 +102,7 @@ gulp.task('browserSync', function() {
       baseDir: ''
     },
   })
-})
+});
 
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
