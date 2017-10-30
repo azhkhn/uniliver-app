@@ -111,3 +111,19 @@ section.success {
     }
   }
 }
+
+div .game-vertical-align {
+  margin-top: 15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+div .game-ques-vertical-align {
+  margin-top: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}

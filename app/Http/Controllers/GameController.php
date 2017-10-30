@@ -26,6 +26,6 @@ class GameController
     }
     public function dayQues(Request $request, $day, $ques)
     {
-        return "Day $day Question $ques";
+        return view("game.question", ['day' => $day,'ques' => $ques]);
     }
 }

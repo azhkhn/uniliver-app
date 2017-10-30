@@ -100,6 +100,20 @@ section.success {
     .scroll-top .btn:focus {
       outline: none; }
 
+div .game-vertical-align {
+  margin-top: 15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; }
+
+div .game-ques-vertical-align {
+  margin-top: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; }
+
 #mainNav {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
