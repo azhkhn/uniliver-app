@@ -12,32 +12,30 @@
             Day : {{$day}} , Question: {{$ques}}
         </div>
         <div class="col-sm-12 text-left">
-            <form name="gameForm" id="gameForm" novalidate method="post" action="{{$action}}">
                 <input type="hidden" name="_token" id="_token" value="{{ Session::token() }}" />
                 <input type="hidden" name="day" id="day" value="{{$day}}" />
                 <input type="hidden" name="question" id="question" value="{{$ques}}" />
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="1">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" required>
                         Answer 1
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="2" required>
                         Answer 2
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="3">
+                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="3" required>
                         Answer 3
                     </label>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-lg" id="gameSubmitButton">Submit</button>
+                    <button class="btn btn-success btn-lg" id="gameSubmitButton">Submit</button>
                 </div>
-            </form>
         </div>
     </div>
 </div>

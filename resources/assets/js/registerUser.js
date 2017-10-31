@@ -1,3 +1,11 @@
+$(document).ready(function() {
+    $(function () {
+        $.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+        });
+    });
+});
+
 $(function() {
   $("#registrationForm input,#registrationForm textarea").jqBootstrapValidation({
     preventSubmit: true,
@@ -24,8 +32,8 @@ $(function() {
         data: {
           name: name,
           phone: phone,
-          email: email,
-          _token: _token
+          email: email
+          //_token: _token
         },
         cache: false,
         success: function() {

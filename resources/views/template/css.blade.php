@@ -8,5 +8,6 @@
 
     <!-- Custom styles for this template -->
     <link href="{{url('css/freelancer.min.css')}}" rel="stylesheet">
+    <meta name="_token" content="{{ csrf_token() }}">
 
     </head>

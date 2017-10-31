@@ -4,49 +4,40 @@ $(document).ready(function() {
         $('#mainContainer').load('game/d1q1');
         history.pushState(null, null, 'game/d1q1');
     });
-});
-/*
-    $('#gameSubmitButton').submit(function(event) {
 
-        // get the form data
-        // there are many ways to get this data using jQuery (you can use the class or id also)
-
-        var day = $("input#day").val();
-        var question = $("input#question").val();
-        var answer = $("input[name='optionsRadios']:checked").val();
-        var _token= $("input#_token").val();
-        var nextDay = day +1;
-        var nextQues = question +1;
-        // process the form
+    $("#gameSubmitButton").click(function () {
+        var formData = new FormData();
+        //formData.append("_token", $("#_token").val());
+        var day = parseInt($("#day").val());
+        var question = parseInt($("#question").val());
+        var answer = parseInt($(":radio[name='optionsRadios']:checked").val());
+        var nextURL = "/game/d" + day + "q" + (question+1);
+        console.log("day" + day);
+        console.log("question" + question);
+        console.log("answer" + answer);
+        console.log("nextURL" + nextURL);
         $.ajax({
-            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-            url         : 'game/answer', // the url where we want to POST
-            data        : {
+            url:"/game/answer",
+            type: "POST",
+            data: {
                 day: day,
                 question: question,
-                answer: answer,
-                _token: _token
-            }, // our data object
-            dataType    : 'text', // what type of data do we expect back from the server
-            encode          : true
+                answer: answer
+            },
+            cache:false,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: function (result) {
+                console.log("result" + result)
+                if(result==="true") {
+                    location.replace(nextURL);
+                } else {
+                    location.replace(result);
+                }
 
-        })
-
-        // using the done promise callback
-        .done(function(data) {
-
-            $('#mainContainer').load('game/'+ nextDay +'/'+ nextQues);
-            history.pushState(null, null, 'game/'+ nextDay +'/'+ nextQues);
-            event.preventDefault();
-            event.stopPropagation();
-
-            //console.log(data);
-
-            // here we will handle errors and validation messages
+            },
+            error: function () {
+                
+            }
         });
-        return false;
-        // stop the form from submitting the normal way and refreshing the page
-
     });
-
-});*/
+});
