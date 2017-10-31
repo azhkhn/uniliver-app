@@ -117,6 +117,13 @@ div .game-ques-vertical-align {
 div .center-align-element {
   text-align: center; }
 
+div .login-center-align-vertical {
+  margin-top: 15em; }
+
+@media (max-width: 767px) {
+  div .login-center-align-vertical {
+    margin-top: 5em; } }
+
 #mainNav {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;

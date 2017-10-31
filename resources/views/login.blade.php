@@ -3,8 +3,7 @@
 @section('title','Register to play')
 
 @section('content')
-
-        <div class="row">
+        <div class="row login-center-align-vertical">
             <div class="col-xs-12 col-sm-4">
                 <img class="rounded" src="img/profile.jpg" alt="">
             </div>
