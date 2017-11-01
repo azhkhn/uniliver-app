@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -17,7 +18,8 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        $name = $request->input('name');
+        $user = new User();
+        $user->name = $request->input('name');
         $email = $request->input('email');
         $phone = $request->input('phone');
         $request->session()->put(['name'=> $name,'email'=> $email,'phone'=> $phone,]);

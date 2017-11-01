@@ -32,3 +32,7 @@ Route::any('user/register', 'UserController@register');
 Route::any('question/{day}/{question}', 'QuestionController@show');
 
 Route::any('question/{user}/{day}/{question}', 'QuestionController@saveAnswer');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
