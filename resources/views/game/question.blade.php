@@ -12,6 +12,7 @@
             Day : {{$day}} , Question: {{$ques}}
         </div>
         <div class="col-sm-12 text-left">
+
                 <input type="hidden" name="_token" id="_token" value="{{ Session::token() }}" />
                 <input type="hidden" name="day" id="day" value="{{$day}}" />
                 <input type="hidden" name="question" id="question" value="{{$ques}}" />

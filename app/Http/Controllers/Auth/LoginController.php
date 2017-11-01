@@ -48,8 +48,9 @@ class LoginController extends Controller
         $user = User::where('email', $username)
             ->orWhere('phone', $username)
             ->first();
-        Log::info("count: " .  $user->email);
+
         if($user != null) {
+            Log::info("count: " .  $user->email);
             return true;
         }
         return false;
@@ -62,16 +63,23 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             $request->session()->regenerate();
-            $request->session()->put('name', $request->input('name'));
-            $request->session()->put('email', $request->input('email'));
-            $request->session()->put('phone', $request->input('phone'));
+
+            $user = User::where('email', $request->input('email'))
+                ->orWhere('phone', $request->input('email'))
+                ->first();
+            $request->session()->put('name', $user->name);
+            $request->session()->put('email', $user->email);
+            $request->session()->put('phone', $user->phone);
 
             return redirect()->route('game');
+        } else {
+            return redirect('/login')->withInput()
+                ->withErrors(array('email' => 'Email or phone not registered in Database.'));
         }
     }
 
     public function logout(Request $request) {
         $request->session()->invalidate();
-        return redirect('/game');
+        return redirect('/login');
     }
 }

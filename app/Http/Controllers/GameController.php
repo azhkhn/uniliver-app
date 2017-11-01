@@ -20,6 +20,7 @@ class GameController extends Controller
 
     public function start(Request $request)
     {
+        Log::info($request->session()->all());
         $name = $request->session()->get('name');
         $email = $request->session()->get('email');
         $phone = $request->session()->get('phone');
@@ -29,6 +30,7 @@ class GameController extends Controller
 
     public function day1Ques1(Request $request)
     {
+
         return view("game.question", ['day' => 1,'ques' => 1]);
     }
 

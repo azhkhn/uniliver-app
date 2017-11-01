@@ -1,8 +1,16 @@
 
 $(document).ready(function() {
-    $('#startGame').click(function(){
-        $('#mainContainer').load('game/d1q1');
-        history.pushState(null, null, 'game/d1q1');
+    $('#startGame1').click(function(){
+        $('#mainContainer').load('/game/d1q1');
+        history.pushState(null, null, '/game/d1q1');
+    });
+    $('#startGame2').click(function(){
+        $('#mainContainer').load('/game/d2q1');
+        history.pushState(null, null, '/game/d2q1');
+    });
+    $('#startGame3').click(function(){
+        $('#mainContainer').load('/game/d3q1');
+        history.pushState(null, null, '/game/d3q1');
     });
 
     $("#gameSubmitButton").click(function () {

@@ -18,10 +18,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if ($request->session()->exists('email')) {
 
-            return redirect('/game');
-        }
         return $next($request);
     }
 }
