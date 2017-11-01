@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -20,15 +20,6 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
@@ -36,29 +27,51 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+
     }
 
-    /**
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     */
-    protected function validateLogin(Request $request)
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    private function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required|string|unique:users',
+            'email' => 'required|string',
         ]);
     }
 
-    /**
-     * Get the login username to be used by the controller.
-     *
-     * @return string
-     */
-    public function username()
+    private function attemptLogin(Request $request)
     {
-        return 'email';
+        $username = $request->input('email');
+        $user = User::where('email', $username)
+            ->orWhere('phone', $username)
+            ->first();
+        Log::info("count: " .  $user->email);
+        if($user != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+
+        if ($this->attemptLogin($request)) {
+            $request->session()->regenerate();
+            $request->session()->put('name', $request->input('name'));
+            $request->session()->put('email', $request->input('email'));
+            $request->session()->put('phone', $request->input('phone'));
+
+            return redirect()->route('game');
+        }
+    }
+
+    public function logout(Request $request) {
+        $request->session()->invalidate();
+        return redirect('/game');
     }
 }
