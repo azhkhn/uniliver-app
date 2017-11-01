@@ -15,6 +15,10 @@ class CreateGameResultsTable extends Migration
     {
         Schema::create('game_results', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('userid');
+            $table->integer('day');
+            $table->integer('question');
+            $table->boolean('answer');
             $table->timestamps();
         });
     }
