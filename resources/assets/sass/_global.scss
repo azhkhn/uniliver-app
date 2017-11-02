@@ -121,11 +121,13 @@ div .game-vertical-align {
 }
 
 div .game-ques-vertical-align {
-  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  max-width: 40em;
 }
 
 div .center-align-element {
@@ -133,11 +135,31 @@ div .center-align-element {
 }
 
 div .login-center-align-vertical{
-  margin-top: 15em;
+  margin-top: 8em;
 }
 
 @media(max-width:767px) {
   div .login-center-align-vertical{
     margin-top: 5em;
   }
+}
+
+div .startGame-button-set {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media(max-width:767px) {
+  div .startGame-button-set {
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+}
+
+#bootstrap-overrides .navbar-default { /* 100+1=101 priority score, yay! */
+  background-color: #1b376c;
+  border-color: #e7e7e7;
+}
+
+#bootstrap-overrides .navbar-default .navbar-brand {
+  color: #9e2222;
 }

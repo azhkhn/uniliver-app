@@ -19,7 +19,7 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $user = new User();
-        $user->name = $request->input('name');
+        $name = $request->input('name');
         $email = $request->input('email');
         $phone = $request->input('phone');
         $request->session()->put(['name'=> $name,'email'=> $email,'phone'=> $phone,]);
@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function login()
     {
-        return view("login");
+        return view("auth.register");
     }
 
     public function show(Request $request)

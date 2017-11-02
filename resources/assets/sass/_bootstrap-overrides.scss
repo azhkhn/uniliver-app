@@ -16,6 +16,36 @@
   }
 }
 
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #000000;
+  background-color: #0092d8;
+}
+
+.navbar-default {
+  background: #1c1927; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #1c1927, #0072aa); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1c1927, #0072aa); /* For Opera 11.6 to 12.0 */
+  background: -moz-linear-gradient(right, #1c1927, #0072aa); /* For Fx 3.6 to 15 */
+  background: linear-gradient(right, #1c1927, #0072aa); /* Standard syntax (must be last) */
+
+  border-color: #1c1927;
+}
+
+body {
+  font-size: 16px;
+  background: #253a6f; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #253a6f , #0079b3); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #253a6f, #0072aa); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #253a6f, #0072aa); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #253a6f , #0072aa); /* Standard syntax */
+}
+
+.form-control {
+  color: #ffffff;
+}
+
 .btn-primary {
   font-weight: 700;
   @include button-variant(white, $theme-primary, $theme-primary);

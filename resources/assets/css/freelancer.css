@@ -108,21 +108,40 @@ div .game-vertical-align {
   flex-direction: row; }
 
 div .game-ques-vertical-align {
-  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row; }
+  flex-direction: row;
+  max-width: 40em; }
 
 div .center-align-element {
   text-align: center; }
 
 div .login-center-align-vertical {
-  margin-top: 15em; }
+  margin-top: 8em; }
 
 @media (max-width: 767px) {
   div .login-center-align-vertical {
     margin-top: 5em; } }
+
+div .startGame-button-set {
+  margin-left: auto;
+  margin-right: auto; }
+
+@media (max-width: 767px) {
+  div .startGame-button-set {
+    margin-left: 5em;
+    margin-right: 5em; } }
+
+#bootstrap-overrides .navbar-default {
+  /* 100+1=101 priority score, yay! */
+  background-color: #1b376c;
+  border-color: #e7e7e7; }
+
+#bootstrap-overrides .navbar-default .navbar-brand {
+  color: #9e2222; }
 
 #mainNav {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -183,31 +202,30 @@ div .login-center-align-vertical {
     #mainNav.navbar-shrink .navbar-brand {
       font-size: 1.5em; } }
 
-header.masthead {
+div.masthead {
   padding-top: 50px;
   padding-bottom: 50px;
-  color: black;
-  background: white; }
-  header.masthead img {
+  color: black; }
+  div.masthead img {
     display: block;
     margin: 0 auto 20px; }
-  header.masthead .intro-text .name {
+  div.masthead .intro-text .name {
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 2em;
     font-weight: 700;
     display: block;
     text-transform: uppercase; }
-  header.masthead .intro-text .skills {
+  div.masthead .intro-text .skills {
     font-size: 1.25em;
     font-weight: 300; }
 
 @media (min-width: 768px) {
-  header.masthead {
-    padding-top: 50px;
+  div.masthead {
+    padding-top: 100px;
     padding-bottom: 100px; }
-    header.masthead .intro-text .name {
+    div.masthead .intro-text .name {
       font-size: 2em; }
-    header.masthead .intro-text .skills {
+    div.masthead .intro-text .skills {
       font-size: 1.75em; } }
 
 .floating-label-form-group {
@@ -217,7 +235,7 @@ header.masthead {
   border-bottom: 1px solid #eeeeee; }
   .floating-label-form-group input,
   .floating-label-form-group textarea {
-    font-size: 1.5em;
+    font-size: 1.2em;
     position: relative;
     z-index: 1;
     padding-right: 0;
@@ -280,6 +298,41 @@ footer {
     color: #82cdff;
     border: solid 2px white;
     background: white; }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #000000;
+  background-color: #0092d8; }
+
+.navbar-default {
+  background: #1c1927;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #1c1927, #0072aa);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1c1927, #0072aa);
+  /* For Opera 11.6 to 12.0 */
+  background: -moz-linear-gradient(right, #1c1927, #0072aa);
+  /* For Fx 3.6 to 15 */
+  background: linear-gradient(right, #1c1927, #0072aa);
+  /* Standard syntax (must be last) */
+  border-color: #1c1927; }
+
+body {
+  font-size: 16px;
+  background: #253a6f;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #253a6f, #0079b3);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #253a6f, #0072aa);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #253a6f, #0072aa);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #253a6f, #0072aa);
+  /* Standard syntax */ }
+
+.form-control {
+  color: #ffffff; }
 
 .btn-primary {
   font-weight: 700;

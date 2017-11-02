@@ -12,4 +12,13 @@ class GameResult extends Model
      * @var string
      */
     protected $table = 'game_results';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'day', 'question', 'answer',
+    ];
 }

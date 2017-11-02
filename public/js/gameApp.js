@@ -45,7 +45,7 @@ $(document).ready(function() {
                 cache:false,
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 success: function (result) {
-                    console.log("result" + result)
+                    console.log("result" + result);
                     if(result==="true") {
                         $('#mainContainer').fadeOut(500, function () {
                             $('#mainContainer').load(nextURL, function () {

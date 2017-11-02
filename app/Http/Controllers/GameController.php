@@ -8,6 +8,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\GameResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -30,8 +32,13 @@ class GameController extends Controller
 
     public function day1Ques1(Request $request)
     {
+        $path = storage_path() . "/json/question_bank.json"; // ie: /var/www/laravel/app/storage/json/filename.json
 
-        return view("game.question", ['day' => 1,'ques' => 1]);
+        $json = json_decode(file_get_contents($path), false);
+
+        $set = $json->questions[0];
+
+        return view("game.question_form", ['day' => 1,'ques' => 1, 'set' => $set]);
     }
 
     public function day1Ques2(Request $request)
@@ -55,13 +62,22 @@ class GameController extends Controller
     {
         $day = $request->input('day');
         $question = $request->input('question');
-        $answer = $request->input('answer');
+        $result = trim($request->input('result'));
+        $answer = false;
+        if($result=="true") {
+            $answer = true;
+        }
 
         $email = $request->session()->get('email');
-        $user = User::$user = User::where('email', $email)
+        $user = User::where('email', $email)
             ->orWhere('phone', $email)
             ->first();
-
+        $gameresult = New GameResult();
+        $gameresult->userid = $user->id;
+        $gameresult->day = $day;
+        $gameresult->question = $question;
+        $gameresult->answer = $answer;
+        $gameresult.save();
 
 
         Log::info("day: " .  $day . "question: " .  $question . "answer: " .  $answer);

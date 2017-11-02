@@ -1,68 +1,56 @@
-@extends('layouts.app')
+@extends('app')
+
+@section('title','Register to play')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
+        <div class="row login-center-align-vertical">
+            <div class="col-xs-12 col-sm-4">
+                <img class="rounded" src="img/profile.jpg" alt="">
+            </div>
+            <div class="col-xs-12 col-sm-8 center-align-element">
+                <div class="intro-text">
+                    <span class="skills">Please register to play the game.</span>
+                </div>
+                <form name="registrationForm" id="registrationForm" method="POST" action="{{ route('register') }}" >
+                    {{ csrf_field() }}
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls {{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="control-label">Name</label>
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Name" required autofocus>
+                            @if ($errors->has('name'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="control-label">Email Address</label>
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Email Address" required>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">phone</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="tel" class="form-control" name="phone" required>
-
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls {{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">Phone Number</label>
+                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Phone Number" >
+                            @if ($errors->has('phone'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg" id="registerButton">Register</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
 @endsection

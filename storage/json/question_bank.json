@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "number": 1,
+            "question": "What color of 'Change GKK' indicator indicates Germkill Kit life is OK?",
+            "choices": {
+                "a": "Solid Blue",
+                "b": "Blinking Blue",
+                "c": "Solid Green"
+            },
+            "answer": "c"
+        },
+        {
+            "number": 2,
+            "question": "What is the storage capacity of 'Pureit Ultima 418'?",
+            "choices": {
+                "a": "4 Liters",
+                "b": "6 Liters",
+                "c": "8 Litres"
+            },
+            "answer": "a"
+        },
+        {
+            "number": 3,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        }
+    ]
+}

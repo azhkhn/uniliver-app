@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -34,11 +36,11 @@ class RegisterController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
 
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,8 +51,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'string|email|max:255|unique:users',
-            'phone' => 'string|regex:/(01)[0-9]/|min:10|unique:users',
+            'email' => 'string|email|max:255',
+            'phone' => 'string|regex:/(01)[0-9]/|min:10',
         ]);
     }
 
@@ -67,5 +69,17 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        $request->session()->put(['name'=> $user->name,'email'=> $user->email,'phone'=> $user->phone]);
     }
 }

@@ -2,22 +2,26 @@ $(document).ready(function() {
 
     $(function () {
         $.ajaxSetup({
-            headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+            headers: {'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content') }
         });
     });
 
     $('#startGame1').click(function(){
-        $('#mainContainer').load('/game/d1q1');
-        history.pushState(null, null, '/game/d1q1');
+        $('#mainContainer').load('/game/d1q1 #load_element');
+        history.pushState(null, "", '/game/d1q1');
     });
     $('#startGame2').click(function(){
-        $('#mainContainer').load('/game/d2q1');
-        history.pushState(null, null, '/game/d2q1');
+        $('#mainContainer').load('/game/d2q1 #load_element');
+        history.pushState(null, "", '/game/d2q1');
     });
     $('#startGame3').click(function(){
-        $('#mainContainer').load('/game/d3q1');
-        history.pushState(null, null, '/game/d3q1');
+        $('#mainContainer').load('/game/d3q1 #load_element');
+        history.pushState(null, "", '/game/d3q1');
     });
+
+    /*$(':radio').click(function () {
+        $("#gameSubmitButton").prop('disabled', false);
+    });*/
 
     $("#question-form").submit(function(e){
         return false;
@@ -27,8 +31,14 @@ $(document).ready(function() {
         //event.preventSubmit();
         var day = parseInt($("#day").val());
         var question = parseInt($("#question").val());
-        var answer = parseInt($(":radio[name='answer']:checked").val());
-        if(answer==1 || answer==2 || answer==3) {
+        var number = parseInt($("#number").val());
+        var answer = $(":radio[name='answer']:checked").val();
+        var todo = $("#todo").val().trim();
+        var result = "false";
+        if(answer===todo) {
+            result = "true";
+        }
+        if(answer==='a' || answer==='b' || answer==='c') {
             var nextURL = "/game/d" + day + "q" + (question+1);
             console.log("day" + day);
             console.log("question" + question);
@@ -40,12 +50,13 @@ $(document).ready(function() {
                 data: {
                     day: day,
                     question: question,
-                    answer: answer
+                    number:number,
+                    result: result
                 },
                 cache:false,
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 success: function (result) {
-                    console.log("result" + result)
+                    console.log("result" + result);
                     if(result==="true") {
                         $('#mainContainer').fadeOut(500, function () {
                             $('#mainContainer').load(nextURL, function () {
