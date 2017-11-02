@@ -46,7 +46,7 @@ class GameController extends Controller
 
     public function day1result(Request $request)
     {
-        return view("game.result", ['day' => 1]);
+        return view("game.result_form", ['day' => 1]);
     }
 
 
@@ -56,6 +56,14 @@ class GameController extends Controller
         $day = $request->input('day');
         $question = $request->input('question');
         $answer = $request->input('answer');
+
+        $email = $request->session()->get('email');
+        $user = User::$user = User::where('email', $email)
+            ->orWhere('phone', $email)
+            ->first();
+
+
+
         Log::info("day: " .  $day . "question: " .  $question . "answer: " .  $answer);
         if($question >=3) {
             return "/game/d1result";

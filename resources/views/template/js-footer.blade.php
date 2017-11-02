@@ -1,17 +1,14 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{url('js/jquery/jquery.min.js')}}"></script>
-<script src="{{url('bootstrap/js/bootstrap.bundle.js')}}"></script>
+<script src="{{url('bootstrap/js/bootstrap.bundle.js')}}" async></script>
 
 <!-- Plugin JavaScript -->
-<script src="{{url('js/jquery-easing/jquery.easing.min.js')}}"></script>
+<script src="{{url('js/jquery-easing/jquery.easing.min.js')}}" async></script>
 
-<!-- Contact Form JavaScript -->
-<script src="{{url('../js/jqBootstrapValidation.js')}}"></script>
-<script src="{{url('../js/registerUser.js')}}"></script>
 
 <!-- Custom scripts for this template -->
-<script src="{{url('../js/freelancer.min.js')}}"></script>
-<script src="{{url('../js/gameApp.js')}}"></script>
+<script src="{{url('../js/freelancer.min.js')}}" async></script>
+<script src="{{url('../js/gameApp.min.js')}}" async></script>
 
 </body>
 

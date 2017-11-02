@@ -47,7 +47,7 @@ gulp.task('minify-css', ['sass'], function() {
 
 // Minify custom JS
 gulp.task('minify-js', function() {
-  return gulp.src('resources/assets/js/freelancer.js')
+  return gulp.src(['resources/assets/js/freelancer.js', 'resources/assets/js/gameApp.js'])
     .pipe(uglify())
     .pipe(header(banner, {
       pkg: pkg
@@ -71,9 +71,6 @@ gulp.task('copy', function() {
       '!**/*.map'
     ])
     .pipe(gulp.dest('public/bootstrap'));
-
-  gulp.src(['resources/assets/js/registerUser.js', 'resources/assets/js/gameApp.js'])
-      .pipe(gulp.dest('public/js'));
 
   gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
     .pipe(gulp.dest('public/js/jquery'));
