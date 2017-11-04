@@ -14,7 +14,7 @@
                     @endif
                 </p>
                 <p>
-                    Please tap on start when you are ready. You will get only 1 (ONE) minute to complete the game.
+                    Please tap on start when you are ready
                 </p>
             </div>
             <div class="col-sm-12" >

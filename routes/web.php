@@ -11,9 +11,8 @@
 |
 */
 
-Route::any('/', 'UserController@login');
+Route::any('/', 'GameController@home');
 
-Route::any('/user', 'UserController@show');
 
 Route::get('/game', 'GameController@start')->name('game');
 

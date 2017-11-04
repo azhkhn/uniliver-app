@@ -37,7 +37,7 @@
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls {{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">Phone Number</label>
+                            <label for="phone" class="control-label">Phone Number</label>
                             <input class="form-control" id="phone" name="phone" type="tel" placeholder="Phone Number" >
                             @if ($errors->has('phone'))
                                 <span class="help-block">

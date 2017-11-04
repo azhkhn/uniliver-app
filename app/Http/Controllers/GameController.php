@@ -18,7 +18,11 @@ class GameController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('checkIfLoggedIn', ['except' => 'home']);
+    }
 
+    public function home(Request $request) {
+        return view('home');
     }
 
     public function start(Request $request)
