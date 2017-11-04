@@ -203,7 +203,7 @@ div .startGame-button-set {
       font-size: 1.5em; } }
 
 div.masthead {
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 50px;
   color: black; }
   div.masthead img {
@@ -424,3 +424,8 @@ body {
 .btn:active,
 .btn:focus {
   outline: none; }
+
+.well {
+  text-align: center;
+  padding: 1em 5em 1.5em 5em;
+  background-color: transparent; }

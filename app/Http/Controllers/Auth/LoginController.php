@@ -80,6 +80,6 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         $request->session()->invalidate();
-        return redirect('/login');
+        return redirect('/');
     }
 }

@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title')</title>
+    <link rel="manifest" href="/manifest.json">
 
 @include('template.css')
 

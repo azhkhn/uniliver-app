@@ -8,6 +8,9 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <p>Welcome to the game.</p>
+                <p>Let's continue to the game.</p>
+                <a href="/game"><button id="startGame3" name="startGame3" class="btn btn-primary center-align-element" >Game Page</button></a>
+
             </div>
         </div>
     </div>
