@@ -8,6 +8,12 @@
 
     <!-- Custom styles for this template -->
     <link href="{{url('css/freelancer.min.css')}}" rel="stylesheet">
+    <script type="text/javascript" src="{{url('js/jquery/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('bootstrap/js/bootstrap.bundle.js')}}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script type="text/javascript" src="{{url('/js/freelancer.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('/js/gameApp.min.js')}}"></script>
     <meta name="_token" content="{{ csrf_token() }}">
 
     </head>

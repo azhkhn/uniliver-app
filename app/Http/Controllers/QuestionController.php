@@ -14,13 +14,22 @@ class QuestionController extends Controller
 
     }
 
-    public function saveAnswer(Request $request, $user, $day, $question)
-    {
-        return "Question " . $question ." of Day " . $day ." from User: " . $user;
-    }
 
-    public function show($day, $question)
+    public function show(Request $request, $day, $question)
     {
-        return "Question $question of Day $day";
+        $path = storage_path() . "/json/question_bank.json"; // ie: /var/www/laravel/app/storage/json/filename.json
+
+        $json = json_decode(file_get_contents($path), false);
+
+        $question_number = (3 * ($day-1)) + $question -1;
+
+        $set = $json->questions[$question_number];
+
+        $name = $request->session()->get('name');
+        $email = $request->session()->get('email');
+        $phone = $request->session()->get('phone');
+
+        return view("game.question", ['day' => $day,'ques' => $question, 'set' => $set,
+            'name' => $name,'email' => $email,'phone' => $phone]);
     }
 }

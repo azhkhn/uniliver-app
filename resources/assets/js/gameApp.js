@@ -1,52 +1,43 @@
 $(document).ready(function() {
 
+
     $(function () {
         $.ajaxSetup({
             headers: {'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content') }
         });
     });
 
-    $('#startGame1').click(function(){
-        $('#mainContainer').load('/game/d1q1 #load_element');
-        history.pushState(null, "", '/game/d1q1');
-    });
-    $('#startGame2').click(function(){
-        $('#mainContainer').load('/game/d2q1 #load_element');
-        history.pushState(null, "", '/game/d2q1');
-    });
-    $('#startGame3').click(function(){
-        $('#mainContainer').load('/game/d3q1 #load_element');
-        history.pushState(null, "", '/game/d3q1');
+    /*$('#startGame1').click(function(){
+        $('#mainContainer').load('/game/d/1/q/1 #load_element');
+        //history.pushState(null, '', '/game/d/1/q/1');
     });
 
-    /*$(':radio').click(function () {
-        $("#gameSubmitButton").prop('disabled', false);
+    $('#startGame2').click(function(){
+        $('#mainContainer').load('/game/d/2/q/1 #load_element');
+        //history.pushState(null, '', '/game/d/2/q/1');
+    });
+
+    $('#startGame3').click(function(){
+        $('#mainContainer').load('/game/d/3/q/1 #load_element');
+        //history.pushState(null, '', '/game/d/3/q/1');
     });*/
 
-    $("#question-form").submit(function(e){
-        return false;
-    });
-
-    $("#gameSubmitButton").click(function (event) {
-        //event.preventSubmit();
+    /*$("#questionForm").submit(function (event) {
         var day = parseInt($("#day").val());
         var question = parseInt($("#question").val());
         var number = parseInt($("#number").val());
         var answer = $(":radio[name='answer']:checked").val();
-        var todo = $("#todo").val().trim();
+        var rindle = $("#rindle").val().trim();
         var result = "false";
-        if(answer===todo) {
+        if(answer===rindle) {
             result = "true";
         }
         if(answer==='a' || answer==='b' || answer==='c') {
-            var nextURL = "/game/d" + day + "q" + (question+1);
-            console.log("day" + day);
-            console.log("question" + question);
-            console.log("answer" + answer);
-            console.log("nextURL" + nextURL);
+            var nextURL = "/game/d/" + day + "/q/" + (question+1);
+            event.preventDefault();
             $.ajax({
-                url:"/game/answer",
-                type: "POST",
+                url:$("#questionForm").attr('action'),
+                type: $("#questionForm").attr('method'),
                 data: {
                     day: day,
                     question: question,
@@ -56,31 +47,28 @@ $(document).ready(function() {
                 cache:false,
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 success: function (result) {
-                    console.log("result" + result);
                     if(result==="true") {
                         $('#mainContainer').fadeOut(500, function () {
-                            $('#mainContainer').load(nextURL, function () {
-                                history.pushState(null, null, nextURL);
+                            $('#mainContainer').load(nextURL  + " #load_element", function () {
+                                //history.pushState(null, null, nextURL);
                                 $('#mainContainer').fadeIn(500);
                             });
                         });
-                        //location.replace(nextURL);
                     } else {
                         $('#mainContainer').fadeOut(500, function () {
-                            $('#mainContainer').load(result, function () {
-                                history.pushState(null, null, result);
+                            $('#mainContainer').load(result + " #load_element", function () {
+                                //history.pushState(null, null, result);
                                 $('#mainContainer').fadeIn(500);
                             });
                         });
-                        //location.replace(result);
                     }
 
                 },
                 error: function () {
-
+                    alert("Error posting answer to question number " + question + "of day " + day + ".");
                 }
             });
         }
-
-    });
+        return false;
+    });*/
 });

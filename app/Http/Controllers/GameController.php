@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\GameResult;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class GameController extends Controller
 
     public function start(Request $request)
     {
-        Log::info($request->session()->all());
+        //Log::info($request->session()->all());
         $name = $request->session()->get('name');
         $email = $request->session()->get('email');
         $phone = $request->session()->get('phone');
@@ -30,42 +31,48 @@ class GameController extends Controller
     }
 
 
-    public function day1Ques1(Request $request)
+    public function result(Request $request, $day)
     {
-        $path = storage_path() . "/json/question_bank.json"; // ie: /var/www/laravel/app/storage/json/filename.json
+        $q1res = 0; $q2res = 0; $q3res = 0;
+        $email = $request->session()->get('email');
+        $user = User::where('email', $email)
+            ->orWhere('phone', $email)
+            ->first();
+        Log::info($user->email);
+        $result_set = DB::table('game_results')
+            ->whereColumn([
+                ['userid', $user->id],
+                ['day', $day]
+            ])->orderBy('question', 'asc')->get();
+        foreach ($result_set as $result) {
+            Log::info($result->answer);
+            if($result->question == 1) {
+                $q1res = $result->answer;
+            } elseif ($result->question == 2) {
+                $q2res = $result->answer;
+            } elseif ($result->question == 3) {
+                $q3res = $result->answer;
+            }
+        }
 
-        $json = json_decode(file_get_contents($path), false);
+        $name = $request->session()->get('name');
+        $email = $request->session()->get('email');
+        $phone = $request->session()->get('phone');
 
-        $set = $json->questions[0];
-
-        return view("game.question_form", ['day' => 1,'ques' => 1, 'set' => $set]);
+        return view("game.result", ['day' => 1,'q1res' => $q1res,'q2res' => $q2res,
+            'q3res' => $q3res, 'name' => $name,'email' => $email,'phone' => $phone]);
     }
-
-    public function day1Ques2(Request $request)
-    {
-        return view("game.question", ['day' => 1,'ques' => 2]);
-    }
-
-    public function day1Ques3(Request $request)
-    {
-        return view("game.question", ['day' => 1,'ques' => 3]);
-    }
-
-    public function day1result(Request $request)
-    {
-        return view("game.result_form", ['day' => 1]);
-    }
-
-
 
     public function processAnswer(Request $request)
     {
+        Log::info($request->all());
         $day = $request->input('day');
         $question = $request->input('question');
-        $result = trim($request->input('result'));
-        $answer = false;
-        if($result=="true") {
-            $answer = true;
+        $answer= trim($request->input('answer'));
+        $rindle = trim($request->input('rindle'));
+        $result = false;
+        if($answer==$rindle) {
+            $result = true;
         }
 
         $email = $request->session()->get('email');
@@ -76,15 +83,15 @@ class GameController extends Controller
         $gameresult->userid = $user->id;
         $gameresult->day = $day;
         $gameresult->question = $question;
-        $gameresult->answer = $answer;
-        $gameresult.save();
+        $gameresult->answer = $result;
+        $gameresult->save();
 
 
-        Log::info("day: " .  $day . "question: " .  $question . "answer: " .  $answer);
         if($question >=3) {
-            return "/game/d1result";
+            return redirect()->route('showResult',[$day]);
         } else {
-            return "true";
+            //return "true";
+            return redirect()->route('showQuestion',[$day,($question + 1)]);
         }
     }
 }

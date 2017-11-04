@@ -17,19 +17,13 @@ Route::any('/user', 'UserController@show');
 
 Route::get('/game', 'GameController@start')->name('game');
 
-Route::any('/game/d1q1', 'GameController@day1Ques1');
 
-Route::any('/game/d1q2', 'GameControld1q1ler@day1Ques2');
-
-Route::any('/game/d1q3', 'GameController@day1Ques3');
-
-Route::any('/game/d1result', 'GameController@day1result');
+Route::any('/game/d/{day}/result', 'GameController@result')->name('showResult');
 
 Route::post('/game/answer', 'GameController@processAnswer');
 
-Route::any('/question/{day}/{question}', 'QuestionController@show');
+Route::get('/game/d/{day}/q/{question}', 'QuestionController@show')->name('showQuestion');
 
-Route::any('/question/{user}/{day}/{question}', 'QuestionController@saveAnswer');
 
 // Authentication Routes...
 

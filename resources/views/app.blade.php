@@ -30,7 +30,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if(isset($email))
                     @if($email != null && $email != "")
-                        <li class="active"><a href="#">Hello {{$name}}<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="#">Hello, {{$name}}<span class="sr-only">(current)</span></a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>
                     @endif
                 @else
@@ -54,4 +54,9 @@
     </div>
 </div>
 
-@include('template.js-footer')
+<!-- Bootstrap core JavaScript -->
+
+
+</body>
+
+</html>

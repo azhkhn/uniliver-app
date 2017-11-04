@@ -22,6 +22,97 @@
         },
         {
             "number": 3,
+            "question": "What does PUREIT CLASSIC 23L need to run?",
+            "choices": {
+                "a": "Electricity and Gas",
+                "b": "Electricity ",
+                "c": "None"
+            },
+            "answer": "c"
+        },
+        {
+            "number": 4,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        }
+    ,
+        {
+            "number": 5,
+            "question": "What type of water does pureit need to provide safe water?",
+            "choices": {
+                "a": "Water from ponds or lakes",
+                "b": "Boiled Water",
+                "c": "Potable water"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 6,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 7,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 8,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 9,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 10,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 11,
+            "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
+            "choices": {
+                "a": "4",
+                "b": "6",
+                "c": "8"
+            },
+            "answer": "b"
+        },
+        {
+            "number": 12,
             "question": "How many stage of purification system does Pureit Ultima 418 have which ensures you get water that is ‘As Safe As Boiled Water’?",
             "choices": {
                 "a": "4",
